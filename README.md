@@ -32,13 +32,13 @@ Follow these steps to run the project locally:
 3. Install dependencies:
    npm install
    
-4.Start the development server:
+4. Start the development server:
   npm run dev
 
 The game should now be accessible at http://localhost:3000.
 
 
-![Alt text](<Create Next App.png>)
+![Alt text](public/images/screenshot.png)
 
 Usage
 
