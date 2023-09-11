@@ -41,9 +41,11 @@ The game should now be accessible at http://localhost:3000.
 ![Alt text](<Create Next App.png>)
 
 Usage
+
 To play the game, click on cards to flip them over. Try to match pairs of identical cards by remembering their positions. The game ends when all pairs are matched.
 
 Roadmap
+
 I have plans to enhance the game in the following ways:
 
 Adding sound effects.
@@ -52,6 +54,7 @@ Implementing multiple difficulty levels.
 Allowing customization of card sets.
 
 Author
+
 Bita Jalili
 Email: bita.djalili@gmail.com
 
