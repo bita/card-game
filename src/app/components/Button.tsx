@@ -9,7 +9,7 @@ const Button: React.FC<ButtonType> = ({ onClick, type, name, classes }) => {
     <button
       type={type}
       onClick={clickHandler}
-      className={`${classes ? classes: ''} g-font bg-red-900 p-4 mb-10 rounded-md shadow-sm shadow-gray-800`}>
+      className={`${classes ? classes: ''} m-1 g-font bg-red-900 p-3 mb-10 text-sm rounded-md shadow-sm shadow-gray-800`}>
       {name}
     </button>
   );

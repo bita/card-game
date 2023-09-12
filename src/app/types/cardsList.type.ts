@@ -1,3 +1,6 @@
+import { ImageCardType } from "./imageCard.type"
+
 export type CardsListType = {
-    cardsList: {src: string} [];
+    cardsList: ImageCardType[];
+    moved: () => void;
 }
