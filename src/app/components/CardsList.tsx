@@ -55,7 +55,7 @@ const CardsList: React.FC<CardsListType> = ({ cardsList, moved }) => {
   }, [firstCard, secondCard]);
 
   return (
-    <Grid grid={cardsList.length}>
+    <Grid>
       {cards &&
         cards.map((card) => {
           return (

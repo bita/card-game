@@ -1,25 +1,19 @@
-'use client'
-
-import { changeDifficulty } from "@/redux/slices/level-slice";
-import { AppDispatch, useAppSelector } from "@/redux/store";
-import { useDispatch } from "react-redux";
+"use client";
+import { useAppSelector } from "@/redux/store";
 
 const DropDown = () => {
-    const dispatche = useDispatch<AppDispatch>();
-    const getLevelValue = (event:React.ChangeEvent<HTMLSelectElement>) => {
-        dispatche(changeDifficulty(+event.target.value))
-    }
-    
-    const level = useAppSelector(
-      (state) => state.levelReducer.value.dificultyValue
-    );
-
+  const level = useAppSelector(
+    (state) => state.levelReducer.value.dificultyValue
+  );
 
   return (
     <>
       <div className="relative w-full border-none">
-        <select defaultValue={level} onChange={getLevelValue} 
-        className="bg-blue-200 appearance-none text-gray-900 w-full border-none inline-block py-3 pl-3 pr-8 rounded">
+        <select
+          defaultValue={level}
+          name="level"
+          className="bg-blue-200 appearance-none text-gray-900 w-full border-none inline-block py-3 pl-3 pr-8 rounded"
+        >
           <option value={4}>4 X 4</option>
           <option value={6}>6 X 6</option>
           <option value={8}>8 X 8</option>

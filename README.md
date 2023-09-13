@@ -24,16 +24,16 @@ The Match Card Game is a classic memory game where players need to match pairs o
 Follow these steps to run the project locally:
 
 1. Clone the repository:
-   git clone https://github.com/bita/match-card-game.git
+   `git clone https://github.com/bita/match-card-game.git`
 
 2. Navigate to the project directory:
-   cd match-card-game
+   `cd card-game`
 
 3. Install dependencies:
-   npm install
+   `npm install`
    
 4. Start the development server:
-  npm run dev
+  `npm run dev`
 
 The game should now be accessible at http://localhost:3000.
 

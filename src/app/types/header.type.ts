@@ -1,4 +1,4 @@
 export type HeaderType = {
     moves: number;
-    shuffleCards: () => void;
+    shuffleCards: (level: number) => void;
 }

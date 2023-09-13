@@ -11,18 +11,19 @@ const Header: React.FC<HeaderType> = ({ shuffleCards, moves }) => {
   const diffLevel = useAppSelector(
     (state) => state.levelReducer.value.dificultyValue
   );
+  const dismissModal = () => {
+    setModalMsg(null)
+  }
+
   const setGameDifficultyLevel = () => {
     setModalMsg({
-      title: "Set Difficulty Level",
-      content: <DifficultyForm />,
-      onDismiss: () => setModalMsg(null),
-      onConfirm: () => {
-        setModalMsg(null);
-      },
+      title: "Set Difficulty Level2",
+      content: <DifficultyForm onSubmitClicked={dismissModal} />,
+      onDismiss: () => dismissModal(),
     });
   };
 
-  const onClickHandler = () => shuffleCards();
+  const onClickHandler = () => shuffleCards(4);
 
   return (
     <>
@@ -43,8 +44,7 @@ const Header: React.FC<HeaderType> = ({ shuffleCards, moves }) => {
         <Modal
           title={modalMsg.title}
           content={modalMsg.content}
-          onConfirm={modalMsg.onConfirm}
-          onCancel={modalMsg.onCancel}
+          onDismiss={modalMsg.onDismiss}
         />
       )}
     </>
