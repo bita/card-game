@@ -28,7 +28,7 @@ const Header: React.FC<HeaderType> = ({ shuffleCards, moves }) => {
 
   return (
     <>
-      <h1 className="pb-4">Match game!</h1>
+      <h1 data-cy="title" className="pb-4">Match game!</h1>
       <div data-cy="new-game" className="inline-block">
         <Button type="button" onClick={onNewGameHandler} name="New Game" />
       </div>

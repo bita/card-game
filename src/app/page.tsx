@@ -5,8 +5,11 @@ import { ImageCardType } from "./types/imageCard.type";
 import { useAppSelector } from "@/redux/store";
 import Header from "./components/Header";
 import shuffleCards from "./cards/shuffel-cards";
+import { useDispatch } from "react-redux";
+import { changeDifficulty } from "@/redux/slices/level-slice";
 
 export default function Home() {
+  const dispatche = useDispatch();
   const [cards, setCards] = useState<ImageCardType[]>([]);
   const [moves, setMoves] = useState(0);
   const diffLevel = useAppSelector(
@@ -18,6 +21,7 @@ export default function Home() {
   }, [diffLevel]);
 
   const startGame = (level: number = 4) => {
+    dispatche(changeDifficulty(+level));
     const list = shuffleCards(level);
     setCards(list);
     setMoves(0);
