@@ -10,10 +10,12 @@ const DropDown = () => {
     <>
       <div className="relative w-full border-none">
         <select
+          data-cy="select-level"
           defaultValue={level}
           name="level"
           className="bg-blue-200 appearance-none text-gray-900 w-full border-none inline-block py-3 pl-3 pr-8 rounded"
         >
+          <option value={2}>2 X 2</option>
           <option value={4}>4 X 4</option>
           <option value={6}>6 X 6</option>
           <option value={8}>8 X 8</option>

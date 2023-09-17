@@ -19,7 +19,7 @@ const DifficultyForm: React.FC<{onSubmitClicked: () => void;}> = ({onSubmitClick
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form data-cy="difficulty" onSubmit={submitHandler}>
       <DropDown />
       <Button classes="my-4 w-1/2 float-right" type="submit" name="Save" />
     </form>

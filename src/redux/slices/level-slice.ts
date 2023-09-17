@@ -12,7 +12,6 @@ export const level = createSlice({
     initialState,
     reducers: {
         changeDifficulty: (state, action: PayloadAction<number>) => {
-            console.log('-->'+ action.payload)
             return {
                 value: {
                     dificultyValue: action.payload

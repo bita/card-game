@@ -4,7 +4,6 @@ import { useAppSelector } from "@/redux/store";
 
 const Grid: React.FC<GridType> = ({ children }) => {
   const diffLevel = useAppSelector((state) => state.levelReducer.value.dificultyValue)
-  console.log('-->!' + diffLevel)
   const [gridClass, setGridClass] = useState('grid-cols-4')
   useEffect(() => {
     setGridClass('grid-cols-' + diffLevel)
@@ -12,7 +11,7 @@ const Grid: React.FC<GridType> = ({ children }) => {
   
   return (
     <div className="w-full max-w-screen-md mx-auto items-center justify-center cursor-pointer">
-      <div className={`grid ${gridClass} gap-1 my-4 text-center`}>
+      <div data-cy="cards-container" className={`grid ${gridClass} gap-1 my-4 text-center`}>
         {children}
       </div>
     </div>

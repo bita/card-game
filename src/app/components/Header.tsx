@@ -12,8 +12,8 @@ const Header: React.FC<HeaderType> = ({ shuffleCards, moves }) => {
     (state) => state.levelReducer.value.dificultyValue
   );
   const dismissModal = () => {
-    setModalMsg(null)
-  }
+    setModalMsg(null);
+  };
 
   const setGameDifficultyLevel = () => {
     setModalMsg({
@@ -23,21 +23,40 @@ const Header: React.FC<HeaderType> = ({ shuffleCards, moves }) => {
     });
   };
 
-  const onClickHandler = () => shuffleCards(4);
+  const onNewGameHandler = () => shuffleCards(4);
+  const onResetHandler = () => shuffleCards(diffLevel);
 
   return (
     <>
-      <p className="pb-4">Match game!</p>
-      <Button type="button" onClick={onClickHandler} name="New Game" />
-      <Button
-        classes="bg-indigo-900"
-        type="button"
-        onClick={setGameDifficultyLevel}
-        name="Difficulty Level"
-      />
+      <h1 className="pb-4">Match game!</h1>
+      <div data-cy="new-game" className="inline-block">
+        <Button type="button" onClick={onNewGameHandler} name="New Game" />
+      </div>
+      <div data-cy="reset-game" className="inline-block">
+        <Button
+          type="button"
+          classes="bg-blue-200"
+          onClick={onResetHandler}
+          name="Reset Game"
+        />
+      </div>
+      <div data-cy="diff-level" className="inline-block">
+        <Button
+          classes="bg-indigo-900"
+          type="button"
+          onClick={setGameDifficultyLevel}
+          name="Difficulty Level"
+        />
+      </div>
+
       <div className="grid grid-cols-2 text-sm">
-        <p>Your Moves: {moves}</p>
-        <p>Difficulty Level: {diffLevel}</p>
+        <div>
+          Your Moves: <span data-cy="moves">{moves}</span>
+        </div>
+        
+        <div>
+          Difficulty Level: <span data-cy="level">{diffLevel}</span>
+        </div>
       </div>
 
       {modalMsg && (

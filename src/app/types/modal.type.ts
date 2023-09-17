@@ -6,6 +6,7 @@ export type BackdropType = {
     modalClass?: string;
     title: string;
     content: string | React.ReactNode;
-    onDismiss?: () => void;
+    onDismiss: () => void;
+    onConfirm?: () => void;
   };
   
