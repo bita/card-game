@@ -31,7 +31,7 @@ export default function Home() {
     setMoves((move) => move + 1);
   };
   return (
-    <main className="container mx-auto text-center text-xl lg:text-3xl p-10">
+    <main className="container mx-auto min-h-screen bg-transparent text-center text-xl lg:text-3xl p-10">
       <Header moves={moves} shuffleCards={startGame} />
       {cards.length > 0 && <CardsList moved={itsAMove} cardsList={cards} resetGame={startGame}/>}
     </main>

@@ -7,6 +7,5 @@ export type BackdropType = {
     title: string;
     content: string | React.ReactNode;
     onDismiss: () => void;
-    onConfirm?: () => void;
   };
   

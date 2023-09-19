@@ -11,7 +11,7 @@ const Grid: React.FC<GridType> = ({ children }) => {
   
   return (
     <div className="w-full max-w-screen-md mx-auto items-center justify-center cursor-pointer">
-      <div data-cy="cards-container" className={`grid ${gridClass} gap-1 my-4 text-center`}>
+      <div data-cy="cards-container" className={`grid ${gridClass} gap-3 my-4 text-center`}>
         {children}
       </div>
     </div>

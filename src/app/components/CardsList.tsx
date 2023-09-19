@@ -7,8 +7,13 @@ import Grid from "./Grid";
 import Modal from "./Modal";
 import { ModalType } from "../types/modal.type";
 import { useAppSelector } from "@/redux/store";
+import Win from "./Win";
 
-const CardsList: React.FC<CardsListType> = ({ cardsList, moved, resetGame }) => {
+const CardsList: React.FC<CardsListType> = ({
+  cardsList,
+  moved,
+  resetGame,
+}) => {
   const [cards, setCards] = useState<ImageCardType[]>(cardsList);
   const [firstCard, setFirstCard] = useState<ImageCardType | null>(null);
   const [secondCard, setSecondCard] = useState<ImageCardType | null>(null);
@@ -22,26 +27,28 @@ const CardsList: React.FC<CardsListType> = ({ cardsList, moved, resetGame }) => 
 
   useEffect(() => getCards(), [cardsList]);
   useEffect(() => {
-    console.log(matched);
     if (matched === cards.length / 2) {
       setTimeout(() => {
         setWinModal({
           title: "Congradulations!",
-          content: "you Win!",
+          content: (
+            <Win
+              onConfirm={() => {
+                setWinModal(null);
+                resetGame(diffLevel);
+              }}
+            />
+          ),
           onDismiss: () => {
-            setWinModal(null)
+            setWinModal(null);
           },
-          onConfirm: () => {
-            setWinModal(null)
-            resetGame(diffLevel)
-          }
         });
-      }, 500);
+      }, 800);
     }
   }, [matched]);
 
   const getCards = () => {
-    setMatched(0)
+    setMatched(0);
     setFirstCard(null);
     setSecondCard(null);
     setCards(cardsList);
@@ -81,7 +88,13 @@ const CardsList: React.FC<CardsListType> = ({ cardsList, moved, resetGame }) => 
 
   return (
     <Grid>
-      {winModal && <Modal onDismiss={winModal.onDismiss} title={winModal.title} content={winModal.content} onConfirm={winModal.onConfirm} />}
+      {winModal && (
+        <Modal
+          onDismiss={winModal.onDismiss}
+          title={winModal.title}
+          content={winModal.content}
+        />
+      )}
       {cards &&
         cards.map((card) => {
           return (
