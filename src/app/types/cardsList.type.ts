@@ -1,7 +1,13 @@
 import { ImageCardType } from "./imageCard.type"
 
+// export type CardsListType = {
+//     cardsList: ImageCardType[];
+//     handleFlipCard: (cardId: number) => void
+//     moved: () => void;
+// }
 export type CardsListType = {
-    cardsList: ImageCardType[];
-    moved: () => void;
-    resetGame: (level: number) => void;
+    newGame: boolean;
+    newPhotos: boolean;
+    gameIsFinished: () => void;
+    moved: (reset?: boolean) => void;
 }

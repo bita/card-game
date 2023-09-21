@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"; 
-import levelReducer from "./slices/level-slice";
+import settingReducer from "./slices/setting-slice";
+import statisticsReducer from "./slices/statistics-slice";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 export const store = configureStore({
     reducer: {
-        levelReducer
+        settingReducer,
+        statisticsReducer
     }
 })
 

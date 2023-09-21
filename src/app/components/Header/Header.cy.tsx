@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import { changeDifficulty } from "@/redux/slices/level-slice";
+import { changeDifficulty } from "@/redux/slices/setting-slice";
 import { ReduxProvider } from "@/redux/Provider";
 
 describe("<Header />", () => {

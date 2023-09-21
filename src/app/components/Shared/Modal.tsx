@@ -1,7 +1,6 @@
+import { BackdropType, ModalType } from "@/app/types/modal.type";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
-import { BackdropType, ModalType } from "../types/modal.type";
-import Button from "./Button";
 
 const Backdrop = (props: BackdropType) => {
   return (
@@ -32,7 +31,7 @@ const ModalOverlay = (props: ModalType) => {
           {props.title}
         </h2>
       </header>
-      <div className="px-8 py-32">{props.content}</div>
+      <div className="px-2 py-8">{props.content}</div>
     </div>
   );
 };
