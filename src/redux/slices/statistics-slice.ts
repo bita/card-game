@@ -10,11 +10,11 @@ export const statistics = createSlice({
   initialState,
   reducers: {
     addStatisctis: (state, action: PayloadAction<GameDetailType>) => {
-      state.value.push({
-        // diffLevel: action.payload.diffLevel,
-        // moves: action.payload.moves,
-        // score: action.payload.score,
-      });
+      // state.value.push({
+      //   // diffLevel: action.payload.diffLevel,
+      //   // moves: action.payload.moves,
+      //   // score: action.payload.score,
+      // });
     },
   },
 });
