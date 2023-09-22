@@ -11,9 +11,9 @@ export const statistics = createSlice({
   reducers: {
     addStatisctis: (state, action: PayloadAction<GameDetailType>) => {
       state.value.push({
-        diffLevel: action.payload.diffLevel,
-        moves: action.payload.moves,
-        score: action.payload.score,
+        // diffLevel: action.payload.diffLevel,
+        // moves: action.payload.moves,
+        // score: action.payload.score,
       });
     },
   },
