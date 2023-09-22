@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { GridType } from "../../types/grid.type";
 import { useAppSelector } from "@/redux/store";
+import { GridType } from "@/app/types/grid.type";
 
 const Grid: React.FC<GridType> = ({ children }) => {
   const diffLevel = useAppSelector((state) => state.settingReducer.value.dificultyValue)

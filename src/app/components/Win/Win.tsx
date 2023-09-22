@@ -1,6 +1,5 @@
-import React from "react";
+import { WinMsgType } from "@/app/types/winMsg.type";
 import Button from "../Shared/Button";
-import { WinMsgType } from "../../types/winMsg.type";
 
 const Win: React.FC<WinMsgType> = ({ onConfirm }) => {
   return (

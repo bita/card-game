@@ -1,4 +1,4 @@
-import { ButtonType } from "../../types/button.type";
+import { ButtonType } from "@/app/types/button.type";
 
 const Button: React.FC<ButtonType> = ({ onClick, type, name, classes }) => {
   const clickHandler = () => {

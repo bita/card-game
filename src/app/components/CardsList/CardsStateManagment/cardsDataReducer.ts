@@ -13,8 +13,8 @@ function shuffleCards(photos: ImageType[]) {
   return cards;
 }
 
-function handleFlippCard(cardsState: ImageCardType[], cardId: number) {
-  return cardsState.map((card) => {
+function handleFlippCard(cards: ImageCardType[], cardId: number) {
+  return cards.map((card) => {
     if (card.cardId === cardId) {
       return {
         ...card,
@@ -25,8 +25,8 @@ function handleFlippCard(cardsState: ImageCardType[], cardId: number) {
   });
 }
 
-function handleActiveCards(cardsState: ImageCardType[], isMatched: boolean) {
-  return cardsState.map((card) => {
+function handleActiveCards(cards: ImageCardType[], isMatched: boolean) {
+  return cards.map((card) => {
     if (card.cardState === "flipped") {
       return {
         ...card,

@@ -1,6 +1,6 @@
 "use client";
 import GameBoard from "./components/Gameboard/GameBoard";
-import Title from "./components/Title/Title";
+import Title from "./components/Shared/Title";
 
 export default function Home() {
   return (

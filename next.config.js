@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": ["app/components/*"]
-    },
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@/components/*": ["app/components/*"]
+    // },
     images: {
       remotePatterns: [
         {

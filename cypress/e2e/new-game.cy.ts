@@ -1,8 +1,8 @@
 describe("First Visit", () => {
   it("should render the first page correctly", () => {
     cy.visit("http://localhost:3000/");
-    cy.get("h1").should("have.length", 1).contains("Match game!");
-    cy.get("button").should("have.length", 3);
+    cy.get("h1").should("have.length", 1).contains("Pair Player");
+    cy.get("button").should("have.length", 4);
     cy.get("[data-cy='moves']").should("have.text", "0");
     cy.get("[data-cy='level']").should("have.text", "4");
     cy.get("[data-cy='cards-container']").should("have.class", "grid-cols-4");

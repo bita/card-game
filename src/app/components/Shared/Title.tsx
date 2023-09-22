@@ -1,5 +1,4 @@
 import { TitleComponentType } from "@/app/types/title.type";
-import React from "react";
 
 const Title: React.FC<TitleComponentType> = ({ title, subTitle }) => {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import Grid from "../Shared/Grid";
 import Card from "../Card/Card";
 import { gameCardDataReducer } from "./CardsStateManagment/cardsDataReducer";
@@ -10,18 +10,13 @@ import {
   getIsFlippedCardsMatch,
 } from "./CardsStateManagment/helper";
 import { CardsListType } from "@/app/types/cardsList.type";
+import Loading from "../Loading/Loading";
+import ErrorComponent from "../Error/ErrorComponent";
 
-const CardsList: React.FC<CardsListType> = ({
-  gameIsFinished,
-  newGame,
-  newPhotos,
-  moved,
-}) => {
-  const { photos, fetchNewPhotos } = useFetchImage();
-  const [gameCards, dispatchGameCardsData] = useReducer(
-    gameCardDataReducer,
-    []
-  );
+const CardsList: React.FC<CardsListType> = ({ gameIsFinished, newGame, newPhotos, moved}) => {
+
+  const { photos, fetchNewPhotos, isLoading, error } = useFetchImage();
+  const [gameCards, dispatchGameCardsData] = useReducer( gameCardDataReducer,[]);
 
   const disableCard = getFlippedCardsIds(gameCards).length === 2;
   const gameFinished = getGameFinished(gameCards);
@@ -34,6 +29,7 @@ const CardsList: React.FC<CardsListType> = ({
 
   useEffect(() => {
     fetchNewPhotos();
+    dispatchGameCardsData({ type: "startNewGame", payload: photos });
     moved(true);
   }, [newPhotos]);
 
@@ -62,19 +58,25 @@ const CardsList: React.FC<CardsListType> = ({
   }, [gameCards, disableCard]);
 
   return (
-    <Grid>
-      {gameCards &&
-        gameCards.map((card) => {
-          return (
-            <Card
-              key={card.cardId}
-              card={card}
-              disabled={disableCard}
-              onClick={() => handleFlipCard(card.cardId)}
-            />
-          );
-        })}
-    </Grid>
+    <>
+      {error && <ErrorComponent errorMsg={error} />}
+      {isLoading && <Loading />}
+      {!error && !isLoading && (
+        <Grid>
+          {gameCards &&
+            gameCards.map((card) => {
+              return (
+                <Card
+                  key={card.cardId}
+                  card={card}
+                  disabled={disableCard}
+                  onClick={() => handleFlipCard(card.cardId)}
+                />
+              );
+            })}
+        </Grid>
+      )}
+    </>
   );
 };
 export default CardsList;
