@@ -15,11 +15,12 @@ function fetchData(
   setIsLoadin: any,
   setError: any
 ) {
+  
   setIsLoadin(true);
   unsplash.search
     .getPhotos({
       query: theme,
-      page: getRandomInt(20, 1),
+      page: getRandomInt(10, 1)+1,
       perPage: (count * count) / 2,
       orientation: "squarish",
     })
