@@ -13,6 +13,10 @@ The Match Card Game is a classic memory game where players need to match pairs o
 - Dynamic photo changes from Unsplash.
 - Multiple difficulty levels.
 - State management with Redux.
+- **Timer Feature:**
+  - The game now includes a timer that tracks the time taken to complete the game.
+  - The progress bar's speed is adjusted based on the selected difficulty level, making the game more challenging.
+  - Players must complete the game within the time limit to win; otherwise, they lose.
 
 ## Technologies Used
 
@@ -44,7 +48,7 @@ The game should now be accessible at http://localhost:3000.
 
 ## Usage
 
-To play the game, click on cards to flip them over. Try to match pairs of identical cards by remembering their positions. The game ends when all pairs are matched.
+To play the game, click on cards to flip them over. Try to match pairs of identical cards by remembering their positions. The game ends when all pairs are matched or when the timer runs out.
 
 ## Testing
 
@@ -65,9 +69,9 @@ This will open the Cypress Test Runner, where you can select and run the E2E tes
 
 I have plans to enhance the game in the following ways:
 
-Adding sound effects.
-Timer for completing the game.
-Allowing customization of card sets.
+- Adding a score panel to track and display player scores.
+- Adding sound effects.
+- Allowing customization of card sets.
 
 Author
 
