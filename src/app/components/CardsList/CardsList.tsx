@@ -13,11 +13,16 @@ import { CardsListType } from "@/app/types/cardsList.type";
 import Loading from "../Loading/Loading";
 import ErrorComponent from "../Error/ErrorComponent";
 
-const CardsList: React.FC<CardsListType> = ({ gameIsFinished, newGame, newPhotos, moved}) => {
-
+const CardsList: React.FC<CardsListType> = ({
+  gameIsFinished,
+  newGame,
+  newPhotos,
+  moved,
+  startTimer,
+  timerStatus,
+}) => {
   const { photos, fetchNewPhotos, isLoading, error } = useFetchImage();
-  const [gameCards, dispatchGameCardsData] = useReducer( gameCardDataReducer,[]);
-
+  const [gameCards, dispatchGameCardsData] = useReducer(gameCardDataReducer,[]);
   const disableCard = getFlippedCardsIds(gameCards).length === 2;
   const gameFinished = getGameFinished(gameCards);
 
@@ -39,6 +44,9 @@ const CardsList: React.FC<CardsListType> = ({ gameIsFinished, newGame, newPhotos
   }, [photos, newGame]);
 
   function handleFlipCard(cardId: number) {
+    if (timerStatus !== "started") {
+      startTimer();
+    }
     dispatchGameCardsData({ type: "flippCard", payload: cardId });
   }
 

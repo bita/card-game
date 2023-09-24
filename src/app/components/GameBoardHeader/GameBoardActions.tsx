@@ -6,12 +6,14 @@ import { ModalType } from "@/app/types/modal.type";
 import { GameBoardActionsType } from "@/app/types/gameBoardActions.type";
 
 const GameBoardActions: React.FC<GameBoardActionsType> = ({
+  resetTimer,
   newGameHandler,
   fetchNewPhotos,
 }) => {
   const [modalMsg, setModalMsg] = useState<ModalType | null>(null);
   const dismissModal = () => {
     setModalMsg(null);
+    resetTimer();
   };
 
   const setGameSetting = () => {

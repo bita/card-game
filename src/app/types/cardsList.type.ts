@@ -3,4 +3,6 @@ export type CardsListType = {
     newPhotos: boolean;
     gameIsFinished: () => void;
     moved: (reset?: boolean) => void;
+    startTimer: () => void;
+    timerStatus: string
 }
