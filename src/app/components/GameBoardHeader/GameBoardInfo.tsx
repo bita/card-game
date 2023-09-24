@@ -11,7 +11,7 @@ const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
   );
 
   return (
-    <div className="flex flex-wrap justify-center flex-row pb-4 mb-8 border-b-2 border-pink-500 text-sm w-full max-w-screen-md mx-auto">
+    <div className="flex flex-wrap justify-center flex-row pb-1 mt-8 border-b border-gray-800 text-sm w-full max-w-screen-md mx-auto">
       <div className="border border-1 border-pink-400 p-2 me-2 mb-2 w-1/3 md:w-1/5">
         Moves: <br />
         <span data-cy="moves">{moves}</span>

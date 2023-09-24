@@ -29,7 +29,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
 
   return (
     <>
-      <div className="flex flex-auto w-full mx-auto max-w-screen-md justify-center flex-wrap">
+      <div className="flex flex-auto w-full mx-auto mt-1 mb-4 max-w-screen-md justify-center flex-wrap">
         <div data-cy="show-scores" className="w-1/2 md:w-1/4 p-1 inline-block">
           <Button
             classes="bg-pink-500 text-white w-full"

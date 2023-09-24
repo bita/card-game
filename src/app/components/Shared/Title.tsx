@@ -3,6 +3,7 @@ import { TitleComponentType } from "@/app/types/title.type";
 const Title: React.FC<TitleComponentType> = ({ title, subTitle }) => {
   return (
     <>
+      {title && (
       <div className="text-5xl pb-2">
         <h1
           data-cy="title"
@@ -10,8 +11,8 @@ const Title: React.FC<TitleComponentType> = ({ title, subTitle }) => {
         >
           {title}
         </h1>
-      </div>
-      <h3 className="pb-8 text-xs">{subTitle}</h3>
+      </div>)}
+      {subTitle && (<h3 className="pb-2 text-xs">{subTitle}</h3>)}
     </>
   );
 };
