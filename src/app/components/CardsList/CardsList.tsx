@@ -48,12 +48,12 @@ const CardsList: React.FC<CardsListType> = ({
       startTimer();
     }
     dispatchGameCardsData({ type: "flippCard", payload: cardId });
+    moved();
   }
 
   useEffect(() => {
     if (disableCard) {
       const flippedCardsMatche = getIsFlippedCardsMatch(gameCards).length === 2;
-      moved();
       if (flippedCardsMatche) {
         dispatchGameCardsData({ type: "handleMatchCards" });
       } else {
