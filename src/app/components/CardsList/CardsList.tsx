@@ -12,6 +12,7 @@ import {
 import { CardsListType } from "@/app/types/cardsList.type";
 import Loading from "../Loading/Loading";
 import ErrorComponent from "../Error/ErrorComponent";
+import { CARDS_DATA_REDUCERS_TYPES, TIMER_STATUS } from "../Gameboard/fixtures";
 
 const CardsList: React.FC<CardsListType> = ({
   gameIsFinished,
@@ -22,7 +23,10 @@ const CardsList: React.FC<CardsListType> = ({
   timerStatus,
 }) => {
   const { photos, fetchNewPhotos, isLoading, error } = useFetchImage();
-  const [gameCards, dispatchGameCardsData] = useReducer(gameCardDataReducer,[]);
+  const [gameCards, dispatchGameCardsData] = useReducer(
+    gameCardDataReducer,
+    []
+  );
   const disableCard = getFlippedCardsIds(gameCards).length === 2;
   const gameFinished = getGameFinished(gameCards);
 
@@ -34,20 +38,29 @@ const CardsList: React.FC<CardsListType> = ({
 
   useEffect(() => {
     fetchNewPhotos();
-    dispatchGameCardsData({ type: "startNewGame", payload: photos });
+    dispatchGameCardsData({
+      type: CARDS_DATA_REDUCERS_TYPES.START_NEW_GAME,
+      payload: photos,
+    });
     moved(true);
   }, [newPhotos]);
 
   useEffect(() => {
-    dispatchGameCardsData({ type: "startNewGame", payload: photos });
+    dispatchGameCardsData({
+      type: CARDS_DATA_REDUCERS_TYPES.START_NEW_GAME,
+      payload: photos,
+    });
     moved(true);
   }, [photos, newGame]);
 
   function handleFlipCard(cardId: number) {
-    if (timerStatus !== "started") {
+    if (timerStatus !== TIMER_STATUS.STARTED) {
       startTimer();
     }
-    dispatchGameCardsData({ type: "flippCard", payload: cardId });
+    dispatchGameCardsData({
+      type: CARDS_DATA_REDUCERS_TYPES.FLIPP_CARD,
+      payload: cardId,
+    });
     moved();
   }
 
@@ -55,10 +68,15 @@ const CardsList: React.FC<CardsListType> = ({
     if (disableCard) {
       const flippedCardsMatche = getIsFlippedCardsMatch(gameCards).length === 2;
       if (flippedCardsMatche) {
-        dispatchGameCardsData({ type: "handleMatchCards" });
+        dispatchGameCardsData({
+          type: CARDS_DATA_REDUCERS_TYPES.MATCHED_CARDS,
+        });
       } else {
         setTimeout(
-          () => dispatchGameCardsData({ type: "handleNotMatchCards" }),
+          () =>
+            dispatchGameCardsData({
+              type: CARDS_DATA_REDUCERS_TYPES.NOT_MATCHED_CARDS,
+            }),
           1000
         );
       }

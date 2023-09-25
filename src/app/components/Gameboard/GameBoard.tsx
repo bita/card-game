@@ -7,8 +7,15 @@ import GameBoardActions from "../GameBoardHeader/GameBoardActions";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import useCoundown from "@/app/utils/useCountdown";
 import { useAppSelector } from "@/redux/store";
-import { getTimeForLevel, getTimeIsUp, progressBarWidth, userFriendlyTime } from "./helper";
+import {
+  getTimeForLevel,
+  getTimeIsUp,
+  progressBarWidth,
+  userFriendlyTime,
+} from "./helper";
 import WinLooseMsg from "../WinLoose/WinLoose";
+import { losePhrases, LOSE_STATUS, winPhrases, WIN_STATUS } from "./fixtures";
+import { getRandomInt } from "@/app/utils/math";
 
 const GameBoard = () => {
   const [moves, setMoves] = useState(0);
@@ -19,9 +26,10 @@ const GameBoard = () => {
     (state) => state.settingReducer.value.dificultyValue
   );
   const totalTime = getTimeForLevel(diffLevel);
-  const { countDown, startTimer, resetTimer, timerStatus } = useCoundown(totalTime);
+  const { countDown, startTimer, resetTimer, timerStatus } =
+    useCoundown(totalTime);
   const timeIsUp = getTimeIsUp(countDown, timerStatus);
-  
+
   const newGameHandler = () => {
     resetTimer();
     setMoves(0);
@@ -39,14 +47,16 @@ const GameBoard = () => {
   };
 
   const gameFinished = () => {
-    let time = userFriendlyTime(totalTime - countDown);
+    const time = userFriendlyTime(totalTime - countDown);
+    const randomWinPhrase = winPhrases[getRandomInt(winPhrases.length, 0)];
+
     setTimeout(() => {
       resetTimer();
       setModal({
-        title: "Congradulations!",
+        title: randomWinPhrase,
         content: (
           <WinLooseMsg
-            status="win"
+            status={WIN_STATUS}
             moves={moves}
             time={time}
             onConfirm={() => {
@@ -65,12 +75,13 @@ const GameBoard = () => {
 
   useEffect(() => {
     if (timeIsUp) {
-      let time = userFriendlyTime(totalTime);
+      const time = userFriendlyTime(totalTime);
+      const randomLosePhrase = losePhrases[getRandomInt(losePhrases.length, 0)];
       setModal({
-        title: "You Loose!",
+        title: randomLosePhrase,
         content: (
           <WinLooseMsg
-            status="loose"
+            status={LOSE_STATUS}
             moves={moves}
             time={time}
             onConfirm={() => {
@@ -86,8 +97,6 @@ const GameBoard = () => {
       });
     }
   }, [timeIsUp]);
-
-  
 
   return (
     <>

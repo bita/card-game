@@ -1,16 +1,17 @@
 import { ImageCardType } from "@/app/types/imageCard.type";
+import { CARD_STATE } from "../../Gameboard/fixtures";
 
 export function getFlippedCardsIds(cards: ImageCardType[]) {
-  return cards.filter((card) => card.cardState === "flipped");
+  return cards.filter((card) => card.cardState === CARD_STATE.FLIPPED);
 }
 
 export function getFlippedCards(cards: ImageCardType[]) {
-  return cards.filter((card) => card.cardState === "flipped").map((card) => card.cardId);
+  return cards.filter((card) => card.cardState === CARD_STATE.FLIPPED).map((card) => card.cardId);
 }
 
 export function getGameFinished(cards: ImageCardType[]) {
   return cards.length > 0 &&
-    cards.filter((card) => card.cardState === "unmatch").length === 0
+    cards.filter((card) => card.cardState === CARD_STATE.UNMATCH).length === 0
     ? true
     : false;
 }

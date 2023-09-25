@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/redux/store";
+import { GENERAL, LEVELS } from "../Gameboard/fixtures";
 
 const DifficultyDropDown = () => {
   const level = useAppSelector(
@@ -8,7 +9,7 @@ const DifficultyDropDown = () => {
   return (
     <>
       <label className="text-left text-white block pb-2 mx-2">
-        Difficulty Level:
+        {GENERAL.DIFFICULTY_LEVEL}:
       </label>
 
       <div className="relative w-auto pb-4 border-none mx-2">
@@ -18,9 +19,14 @@ const DifficultyDropDown = () => {
           name="level"
           className="bg-pink-200 appearance-none text-pink-900 w-full border-none inline-block py-3 pl-3 pr-8 rounded"
         >
-          <option value={2}>2 X 2</option>
-          <option value={4}>4 X 4</option>
-          <option value={6}>6 X 6</option>
+          {LEVELS &&
+            LEVELS.map((level) => {
+              return (
+                <option key={level.value} value={level.value}>
+                  {level.name}
+                </option>
+              );
+            })}
         </select>
         <div className="pointer-events-none text-pink-900 absolute inset-y-0 right-0 flex items-center px-2 pb-2">
           &#8964;

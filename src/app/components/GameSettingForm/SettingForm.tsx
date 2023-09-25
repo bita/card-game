@@ -5,6 +5,7 @@ import { FormEvent } from "react";
 import Button from "../Shared/Button";
 import DifficultyDropDown from "./DifficultyDropDown";
 import ThemeDropDown from "./ThemeDropDown";
+import { BUTTONS } from "../Gameboard/fixtures";
 
 const SettingForm: React.FC<{ onSubmitClicked: () => void }> = ({
   onSubmitClicked,
@@ -34,7 +35,7 @@ const SettingForm: React.FC<{ onSubmitClicked: () => void }> = ({
         <Button
           classes="bg-pink-500 text-white my-4 w-1/4 float-right"
           type="submit"
-          name="Save"
+          name={BUTTONS.SAVE}
         />
       </form>
     </div>

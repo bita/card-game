@@ -4,6 +4,7 @@ import Modal from "../Shared/Modal";
 import SettingForm from "../GameSettingForm/SettingForm";
 import { ModalType } from "@/app/types/modal.type";
 import { GameBoardActionsType } from "@/app/types/gameBoardActions.type";
+import { BUTTONS, GENERAL } from "../Gameboard/fixtures";
 
 const GameBoardActions: React.FC<GameBoardActionsType> = ({
   resetTimer,
@@ -18,7 +19,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
 
   const setGameSetting = () => {
     setModalMsg({
-      title: "Game Settings",
+      title: GENERAL.GAME_SETTINGS,
       content: <SettingForm onSubmitClicked={dismissModal} />,
       onDismiss: () => dismissModal(),
     });
@@ -35,7 +36,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
             classes="bg-pink-500 text-white w-full"
             type="button"
             // onClick={onShowScores}
-            name="Scores"
+            name={BUTTONS.SCORES}
           />
         </div>
         <div data-cy="reset-game" className="w-1/2 md:w-1/4 p-1 inline-block">
@@ -43,7 +44,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
             type="button"
             classes="bg-indigo-500 text-white w-full"
             onClick={newGame}
-            name="Reset Game"
+            name={BUTTONS.RESET_GAME}
           />
         </div>
         <div data-cy="new-game" className="w-1/2 md:w-1/4 p-1 inline-block">
@@ -51,7 +52,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
             type="button"
             classes="bg-indigo-700 text-white w-full"
             onClick={newPhotos}
-            name="New Photos"
+            name={BUTTONS.NEW_PHOTOS}
           />
         </div>
         <div data-cy="diff-level" className="w-1/2 md:w-1/4 p-1 inline-block">
@@ -59,7 +60,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
             classes="bg-indigo-900 w-full"
             type="button"
             onClick={setGameSetting}
-            name="Game Settings"
+            name={BUTTONS.GAME_SETTINGS}
           />
         </div>
       </div>

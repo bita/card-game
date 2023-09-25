@@ -1,3 +1,5 @@
+import { TIMER_STATUS } from "./fixtures";
+
 export function userFriendlyTime(seconds: number) {
     const min = Math.floor(seconds / 60)
       .toString()
@@ -9,7 +11,7 @@ export function userFriendlyTime(seconds: number) {
   }
   
   export function getTimeIsUp(countDown: number, status: string) {
-    if (status === "started") {
+    if (status === TIMER_STATUS.STARTED) {
       return countDown === 0;
     } else {
       return false;

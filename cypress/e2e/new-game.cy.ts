@@ -4,7 +4,7 @@ describe("First Visit", () => {
     cy.get("h1").should("have.length", 1).contains("Pair Player");
     cy.get("button").should("have.length", 4);
     cy.get("[data-cy='moves']").should("have.text", "0");
-    cy.get("[data-cy='level']").should("have.text", "4");
+    cy.get("[data-cy='level']").should("have.text", "Medium");
     cy.get("[data-cy='cards-container']").should("have.class", "grid-cols-4");
     cy.get("[data-cy='cards-container']").find("[data-cy='back']").should("have.length", 16);
     cy.get("[data-cy='cards-container'] div.absolute [data-cy='front']").should("have.length", 16);
@@ -19,7 +19,7 @@ describe("First Visit", () => {
     cy.get("[data-cy='new-game']").click();
 
     cy.get("[data-cy='moves']").should("have.text", "0");
-    cy.get("[data-cy='level']").should("have.text", "4");
+    cy.get("[data-cy='level']").should("have.text", "Medium");
     cy.get("[data-cy='cards-container']").should("have.class", "grid-cols-4");
     cy.get("[data-cy='cards-container']").find("[data-cy='back']").should("have.length", 16);
     cy.get("[data-cy='cards-container'] div.absolute [data-cy='front']").should("have.length", 16);

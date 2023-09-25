@@ -1,5 +1,6 @@
 import { GameDetailType } from "@/app/types/gameDetail.type";
 import { useAppSelector } from "@/redux/store";
+import { GENERAL, LEVELS, themeNameValue } from "../Gameboard/fixtures";
 
 const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
   const diffLevel = useAppSelector(
@@ -13,22 +14,40 @@ const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
   return (
     <div className="flex flex-wrap justify-center flex-row pb-1 mt-8 border-b border-gray-800 text-sm w-full max-w-screen-md mx-auto">
       <div className="border border-1 border-pink-400 p-2 me-2 mb-2 w-1/3 md:w-1/5">
-        Moves: <br />
+        {GENERAL.MOVES}: <br />
         <span data-cy="moves">{moves}</span>
       </div>
       {/* Score */}
       <div className="border border-1 border-pink-500 p-2 me-2 mb-2 w-1/3 md:w-1/5">
-        Last Score:
+        {GENERAL.LAST_SCORE}:
         <br /> <span data-cy="score">0</span>
       </div>
       {/* Score */}
       <div className="border border-1 border-violet-400 p-2 me-2 mb-2 w-1/3 md:w-1/5">
-        Level:
-        <br /> <span data-cy="level">{diffLevel}X{diffLevel}</span>
+        {GENERAL.LEVEL}:
+        <br />{" "}
+        {LEVELS &&
+          LEVELS.map((l) => {
+            if (l.value === diffLevel) {
+              return (
+                <span data-cy="level" key={l.value}>
+                  {l.name}
+                </span>
+              );
+            }
+          })}
       </div>
       <div className="border border-1 border-purple-400 p-2 me-2 mb-2 w-1/3 md:w-1/5">
-        Theme: <br />
-        <span data-cy="theme">{theme}</span>
+        {GENERAL.THEME}: <br />
+        {themeNameValue.map((t) => {
+          if (t.value === theme) {
+            return (
+              <span data-cy="theme" key={t.value}>
+                {t.name}
+              </span>
+            );
+          }
+        })}
       </div>
     </div>
   );

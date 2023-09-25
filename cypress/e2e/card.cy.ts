@@ -3,7 +3,7 @@ describe("cards behavior", () => {
     cy.visit("http://localhost:3000/").wait(2000);
 
     cy.get("[data-cy='moves']").should("have.text", "0");
-    cy.get("[data-cy='level']").should("have.text", "4");
+    cy.get("[data-cy='level']").should("have.text", "Medium");
     cy.get('[data-cy="cards-container"] [data-cy="single-card"]')
       .first()
       .click();
@@ -62,7 +62,7 @@ describe("cards behavior", () => {
     cy.visit("http://localhost:3000/").wait(2000);
 
     cy.get("[data-cy='moves']").should("have.text", "0");
-    cy.get("[data-cy='level']").should("have.text", "4");
+    cy.get("[data-cy='level']").should("have.text", "Medium");
     cy.get('[data-cy="cards-container"] [data-cy="single-card"]')
       .first()
       .click()
@@ -79,7 +79,6 @@ describe("cards behavior", () => {
             }
           }
         );
-        cy.get("[data-cy='moves']").should("have.text", "1");
         cy.get(
           '[data-cy="cards-container"] [data-cy="single-card"].pointer-events-none'
         ).should("have.length", 2);

@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
+import { TIMER_STATUS } from "../components/Gameboard/fixtures";
 
 const useCoundown = (targetTime: number) => {
   const [countDown, setCountDown] = useState(targetTime);
-  const [timerStatus, setTimerStatus] = useState("reset");
+  const [timerStatus, setTimerStatus] = useState(TIMER_STATUS.RESET);
 
   const startTimer = () => {
-    setTimerStatus("started");
+    setTimerStatus(TIMER_STATUS.STARTED);
     setCountDown(targetTime);
   };
 
   const resetTimer = () => {
-    setTimerStatus("reset");
+    setTimerStatus(TIMER_STATUS.RESET);
     setCountDown(targetTime);
   };
 
@@ -19,7 +20,7 @@ const useCoundown = (targetTime: number) => {
   }, [targetTime]);
 
   useEffect(() => {
-    if (timerStatus === "started" && countDown > 0) {
+    if (timerStatus === TIMER_STATUS.STARTED && countDown > 0) {
       const interval = setInterval(() => {
         setCountDown((prev) => prev - 1);
       }, 1000);

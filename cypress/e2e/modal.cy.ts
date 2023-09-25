@@ -25,7 +25,7 @@ describe("modal managment", () => {
     cy.get('[data-cy="difficulty"] [data-cy="submit"]').click();
     cy.get('[data-cy="back-drop"]').should('not.exist')
     cy.get('[data-cy="modal"]').should('not.exist')
-    cy.get('[data-cy="level"]').contains('6')
+    cy.get('[data-cy="level"]').contains('Hard')
     cy.get('[data-cy="moves"]').contains('0')
     cy.get('[data-cy="cards-container"]').should('have.class', 'grid-cols-6');
     cy.get('[data-cy="cards-container"]').find('[data-cy="back"]').should('have.length', 36)
@@ -37,7 +37,7 @@ describe("modal managment", () => {
     cy.get('[data-cy="difficulty"] [data-cy="submit"]').click();
     cy.get('[data-cy="back-drop"]').should('not.exist')
     cy.get('[data-cy="modal"]').should('not.exist')
-    cy.get('[data-cy="level"]').contains('4')
+    cy.get('[data-cy="level"]').contains('Medium')
     cy.get('[data-cy="moves"]').contains('0')
     cy.get('[data-cy="cards-container"]').should('have.class', 'grid-cols-4');
     cy.get('[data-cy="cards-container"]').find('[data-cy="back"]').should('have.length', 16)
@@ -50,7 +50,7 @@ describe("modal managment", () => {
     cy.get('[data-cy="difficulty"] [data-cy="submit"]').click();
     cy.get('[data-cy="back-drop"]').should('not.exist')
     cy.get('[data-cy="modal"]').should('not.exist')
-    cy.get('[data-cy="level"]').contains('2')
+    cy.get('[data-cy="level"]').contains('Easy')
     cy.get('[data-cy="moves"]').contains('0')
     cy.get('[data-cy="cards-container"]').should('have.class', 'grid-cols-2');
     cy.get('[data-cy="cards-container"]').find('[data-cy="back"]').should('have.length', 4)
