@@ -41,13 +41,15 @@ Follow these steps to run the project locally:
    `npm install`
 
 4. Create an Unsplash API Access Key:
-   -Visit [Unsplash Developer](https://unsplash.com/developers) and sign up for a free developer account.
-   -Create a new application to obtain an access key. The free tier has limitations of 30 pictures per request and 500 requests per hour.
+
+   - Visit [Unsplash Developer](https://unsplash.com/developers) and sign up for a free developer account.
+   - Create a new application to obtain an access key. The free tier has limitations of 30 pictures per request and 500 requests per hour.
 
 5. Configure your API Access Key:
-   -Create a `.env` file in the root directory of your project.
-   -Add your Unsplash API Access Key to the `.env` file like this:
-   `NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your-access-key-here`
+
+   - Create a `.env` file in the root directory of your project.
+   - Add your Unsplash API Access Key to the `.env` file like this:
+     `NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your-access-key-here`
 
 6. Start the development server:
    `npm run dev`
