@@ -1,6 +1,7 @@
 import { GameDetailType } from "@/app/types/gameDetail.type";
 import { useAppSelector } from "@/redux/store";
 import { GENERAL, LEVELS, themeNameValue } from "../Gameboard/fixtures";
+import { getLastScoreStatus } from "../Gameboard/helper";
 
 const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
   const diffLevel = useAppSelector(
@@ -10,6 +11,7 @@ const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
   const theme = useAppSelector(
     (state) => state.settingReducer.value.themeValue
   );
+  const lastScoreStatus = getLastScoreStatus()?.status;
 
   return (
     <div className="flex flex-wrap justify-center flex-row pb-1 mt-8 border-b border-gray-800 text-sm w-full max-w-screen-md mx-auto">
@@ -20,7 +22,8 @@ const GameBoardInfo: React.FC<GameDetailType> = ({ moves }) => {
       {/* Score */}
       <div className="border border-1 border-pink-500 p-2 me-2 mb-2 w-1/3 md:w-1/5">
         {GENERAL.LAST_SCORE}:
-        <br /> <span data-cy="score">0</span>
+        <br />{" "}
+        <span data-cy="score">{lastScoreStatus ? lastScoreStatus : "-"}</span>
       </div>
       {/* Score */}
       <div className="border border-1 border-violet-400 p-2 me-2 mb-2 w-1/3 md:w-1/5">

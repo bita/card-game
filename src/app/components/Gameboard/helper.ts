@@ -1,5 +1,5 @@
 import { scoreType } from "@/app/types/score.type";
-import { GENERAL, SCORES_PROPERTIES, TIMER_STATUS } from "./fixtures";
+import { SCORES_PROPERTIES, TIMER_STATUS } from "./fixtures";
 
 export function userFriendlyTime(seconds: number) {
   const min = Math.floor(seconds / 60)
@@ -34,9 +34,19 @@ export function setToLocalStorage(score: scoreType) {
   localStorage.setItem(SCORES_PROPERTIES.SCORES, JSON.stringify(scores));
 }
 
+export function getLastScoreStatus() {
+  const Score = getFromLocalStorage();
+  if (Score.length > 0) {
+    return Score[Score.length - 1 ]
+  }
+}
+
 export function getFromLocalStorage() {
-  const scores =
-    JSON.parse(localStorage.getItem(SCORES_PROPERTIES.SCORES) as string) || [];
+  let scores: scoreType[] = [];
+  if (typeof window !== 'undefined') {
+    scores = JSON.parse(localStorage.getItem(SCORES_PROPERTIES.SCORES) as string) || [];
+  }
+ 
   let validScores: scoreType[] = [];
   scores.forEach((score: scoreType) => {
     const isValidScore =
