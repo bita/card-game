@@ -5,6 +5,8 @@ import SettingForm from "../GameSettingForm/SettingForm";
 import { ModalType } from "@/app/types/modal.type";
 import { GameBoardActionsType } from "@/app/types/gameBoardActions.type";
 import { BUTTONS, GENERAL } from "../Gameboard/fixtures";
+import ScoreBoard from "../ScoreBoard/ScoreBoard";
+import { getFromLocalStorage } from "../Gameboard/helper";
 
 const GameBoardActions: React.FC<GameBoardActionsType> = ({
   resetTimer,
@@ -27,6 +29,14 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
 
   const newGame = () => newGameHandler();
   const newPhotos = () => fetchNewPhotos();
+  const onShowScores = () => {
+    const scores = getFromLocalStorage();
+    setModalMsg({
+      title: GENERAL.SCORE_BOARD,
+      content: <ScoreBoard scores={scores} />,
+      onDismiss: () => dismissModal(),
+    });
+  };
 
   return (
     <>
@@ -35,7 +45,7 @@ const GameBoardActions: React.FC<GameBoardActionsType> = ({
           <Button
             classes="bg-pink-500 text-white w-full"
             type="button"
-            // onClick={onShowScores}
+            onClick={onShowScores}
             name={BUTTONS.SCORES}
           />
         </div>

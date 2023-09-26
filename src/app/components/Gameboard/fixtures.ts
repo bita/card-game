@@ -71,14 +71,24 @@ export const MSGS = {
     GAME_FINISHED: "You have finished the Game!",
     GAME_NOT_FINISHED: "You did NOT finished the Game fast enough",
     YOU_WIN: "YOU WIN!",
-    YOU_LOSE: "YOU LOSE!"
+    YOU_LOSE: "YOU LOSE!",
+    NO_SCORES_AVAILABLE: "No scores availble."
 }
-
+export const SCORES_PROPERTIES = {
+  SCORES: "scores",
+  MOVES: "moves",
+  TIME: "time",
+  STATUS: "status",
+  THEME: "theme",
+  LEVEL: "level",
+}
 export const GENERAL = {
   GAME_TITLE: "Pair Player",
   GAME_SUB_TITLE: "The Memory Match Quest",
   GAME_RULE: "Complete the Game before time's up!",
   MOVES: "Moves",
+  TIME: "Time",
+  STATUS: "Status",
   LAST_SCORE: "Last Score",
   LEVEL: "Level",
   THEME: "Theme",
@@ -86,6 +96,7 @@ export const GENERAL = {
   TIME_SPENT: "Time spent",
   YOUR_MOVES: "Your moves",
   DIFFICULTY_LEVEL: "Difficulty Level",
+  SCORE_BOARD: "Score Borad",
 };
 
 export const LEVELS = [

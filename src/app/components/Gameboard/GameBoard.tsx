@@ -11,11 +11,13 @@ import {
   getTimeForLevel,
   getTimeIsUp,
   progressBarWidth,
+  setToLocalStorage,
   userFriendlyTime,
 } from "./helper";
 import WinLooseMsg from "../WinLoose/WinLoose";
 import { losePhrases, LOSE_STATUS, winPhrases, WIN_STATUS } from "./fixtures";
 import { getRandomInt } from "@/app/utils/math";
+import { scoreType } from "@/app/types/score.type";
 
 const GameBoard = () => {
   const [moves, setMoves] = useState(0);
@@ -49,6 +51,13 @@ const GameBoard = () => {
   const gameFinished = () => {
     const time = userFriendlyTime(totalTime - countDown);
     const randomWinPhrase = winPhrases[getRandomInt(winPhrases.length, 0)];
+    const score: scoreType = {
+      status: WIN_STATUS,
+      moves: moves.toString(),
+      time: time.toString(),
+      level: diffLevel.toString(),
+    };
+    setToLocalStorage(score);
 
     setTimeout(() => {
       resetTimer();
@@ -77,6 +86,14 @@ const GameBoard = () => {
     if (timeIsUp) {
       const time = userFriendlyTime(totalTime);
       const randomLosePhrase = losePhrases[getRandomInt(losePhrases.length, 0)];
+      const score: scoreType = {
+        status: LOSE_STATUS,
+        moves: moves.toString(),
+        time: time.toString(),
+        level: diffLevel.toString(),
+      };
+      setToLocalStorage(score);
+
       setModal({
         title: randomLosePhrase,
         content: (
